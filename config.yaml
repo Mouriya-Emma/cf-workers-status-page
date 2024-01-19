@@ -1,6 +1,6 @@
 settings:
-  title: 'Status Page'
-  url: 'https://status-page.eidam.dev' # used for Slack messages
+  title: 'Chatgpt Status Page'
+  url: 'https://chatgpt-status.murraya.moe' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
@@ -15,25 +15,31 @@ settings:
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
-  - id: workers-cloudflare-com # unique identifier
+  - id: cws
     name: chatgpt
     description: 'cws' # default=empty
     url: 'https://chatgpt.murraya.moe/' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
-    linkable: false # allows the title to be a link, default=true
+    # linkable: false # allows the title to be a link, default=true
+  - openai:
+    name: openai
+    description: '点击这一项查询openai可用性状态'
+    url: 'https://status.openai.com/' # URL to fetch
+    method: GET # default=GET
+    followRedirect: false # should fetch follow redirects, default=false
 
-  - id: www-cloudflare-com
-    name: www.cloudflare.com
-    description: 'Built for anything connected to the Internet.'
-    url: 'https://www.cloudflare.com'
-    method: GET
-    expectStatus: 200
-    linkable: true # allows the title to be a link, default=true
+  # - id: www-cloudflare-com
+  #   name: www.cloudflare.com
+  #   description: 'Built for anything connected to the Internet.'
+  #   url: 'https://www.cloudflare.com'
+  #   method: GET
+  #   expectStatus: 200
+  #   linkable: true # allows the title to be a link, default=true
 
-  - id: blog-cloudflare-com
-    name: The Cloudflare Blog
-    url: 'https://blog.cloudflare.com/'
-    method: GET
-    expectStatus: 200
+  # - id: blog-cloudflare-com
+  #   name: The Cloudflare Blog
+  #   url: 'https://blog.cloudflare.com/'
+  #   method: GET
+  #   expectStatus: 200
