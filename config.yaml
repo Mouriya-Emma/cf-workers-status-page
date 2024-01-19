@@ -16,19 +16,29 @@ settings:
 
 monitors:
   - id: cws
-    name: chatgpt
-    description: 'cws' # default=empty
+    name: chatgpt-share
+    description: '当前chatgpt分享站的可用性' # default=empty
     url: 'https://chatgpt.murraya.moe/' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
-    followRedirect: false # should fetch follow redirects, default=false
+    # followRedirect: false # should fetch follow redirects, default=false
     # linkable: false # allows the title to be a link, default=true
+
+  - id: ninja
+    name: chatgpt-backend
+    description: '当前chatgpt分享站后端的可用性' # default=empty
+    url: 'https://chatgptb.murraya.moe/' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 200 # operational status, default=200
+    # followRedirect: false # should fetch follow redirects, default=false
+    linkable: false # allows the title to be a link, default=true
+    
   - openai:
     name: openai
     description: '点击这一项查询openai可用性状态'
     url: 'https://status.openai.com/' # URL to fetch
     method: GET # default=GET
-    followRedirect: false # should fetch follow redirects, default=false
+    # followRedirect: false # should fetch follow redirects, default=false
 
   # - id: www-cloudflare-com
   #   name: www.cloudflare.com
