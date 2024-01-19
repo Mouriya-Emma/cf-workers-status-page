@@ -1,22 +1,22 @@
 settings:
-  title: 'Chatgpt Status Page'
+  title: 'Chatgpt 状态检查'
   url: 'https://chatgpt-status.murraya.moe' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 90 # number of days you want to display in histogram
+  daysInHistogram: 45 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
-  allmonitorsOperational: 'All Systems Operational'
-  notAllmonitorsOperational: 'Not All Systems Operational'
-  monitorLabelOperational: 'Operational'
-  monitorLabelNotOperational: 'Not Operational'
-  monitorLabelNoData: 'No data'
-  dayInHistogramNoData: 'No data'
-  dayInHistogramOperational: 'All good'
+  allmonitorsOperational: '所有系统运行良好'
+  notAllmonitorsOperational: '可能有系统存在故障'
+  monitorLabelOperational: '正常'
+  monitorLabelNotOperational: '需要检查'
+  monitorLabelNoData: '无数据'
+  dayInHistogramNoData: '无数据'
+  dayInHistogramOperational: '未发生故障'
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
   - id: cws
-    name: chatgpt-share
+    name: chatgpt分享站
     description: '当前chatgpt分享站的可用性' # default=empty
     url: 'https://chatgpt.murraya.moe/' # URL to fetch
     method: GET # default=GET
@@ -25,7 +25,7 @@ monitors:
     # linkable: false # allows the title to be a link, default=true
 
   - id: ninja
-    name: chatgpt-backend
+    name: chatgpt后端
     description: '当前chatgpt分享站后端的可用性' # default=empty
     url: 'https://chatgptb.murraya.moe/auth/login' # URL to fetch
     method: GET # default=GET
@@ -34,7 +34,7 @@ monitors:
     linkable: false # allows the title to be a link, default=true
     
   - openai:
-    name: openai
+    name: 'openai自己正不正常，请点击进入'
     description: '点击这一项查询openai可用性状态'
     url: 'https://status.openai.com/' # URL to fetch
     method: GET # default=GET
