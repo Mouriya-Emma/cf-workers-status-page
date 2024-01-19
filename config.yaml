@@ -27,7 +27,7 @@ monitors:
   - id: ninja
     name: chatgpt-backend
     description: '当前chatgpt分享站后端的可用性' # default=empty
-    url: 'https://chatgptb.murraya.moe/' # URL to fetch
+    url: 'https://chatgptb.murraya.moe/auth/login' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     # followRedirect: false # should fetch follow redirects, default=false
